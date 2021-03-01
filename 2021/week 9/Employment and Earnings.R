@@ -1,12 +1,19 @@
+#TIDYTUESDAY WEEK 9
+#EMPLOYMENTS AND EARNINGS
+#BERNDATTE
+
+#LOADING PACKAGES
 library(tidyverse)
 library(lubridate)
 library(extrafont)
 
-
+#Getting Data
 employed <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-02-23/employed.csv')
 
 earn <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-02-23/earn.csv')
 
+
+#Filtering the observations and selecting the variables i will use
 earn_race <- earn %>% 
   filter(race %in% c('White', 'Asian', 'Black or African American'))%>% #To remove 'All races' observations
   filter(sex != 'Both Sexes')%>% #to get the distinct gender
@@ -20,7 +27,7 @@ earn_race <- earn %>%
   filter(year >= '2015')
          
 
-
+#plotting
 ggplot(earn_race, aes(race, mean_weekly_earn, fill = sex)) + 
   geom_boxplot()+
   facet_wrap(~age)+
@@ -38,7 +45,8 @@ ggplot(earn_race, aes(race, mean_weekly_earn, fill = sex)) +
         plot.caption = element_text(family = 'Bodoni MT', size = 22, color = 'chocolate4'))
 
 
-ggsave(filename = 'Earnings.png', plot = last_plot(), height = 300, width = 450, units = 'mm', path = 'week 9/')
+#Saving
+ggsave(filename = 'Earnings.png', plot = last_plot(), height = 300, width = 450, units = 'mm', path = '2021/week 9/')
 
 
   

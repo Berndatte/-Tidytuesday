@@ -24,7 +24,7 @@ road_cost <- US %>%
   group_by(city) %>%
   summarize(total_cost = sum(cost))
 
-
+#plotting
 p1 <- ggplot(length_of_road, aes(city, total_length, fill = city)) +
   scale_fill_brewer(palette = 'Dark2') +
   geom_bar(stat = 'identity', color = 'blue') +
@@ -54,11 +54,12 @@ p2 <- ggplot(road_cost, aes(city, total_cost, fill = city)) +
         plot.title = element_text(size = 26, face = 'bold'))
 
 
+
 p1 + p2 + plot_annotation(title = 'US TRANSIT COST',
                           theme = theme(plot.title = element_text(size = 25, color = 'blue', hjust = 0.5, face = 'bold')))
 
 
 
-ggsave(filename = 'transit_cost.png', plot = last_plot(), width = 450, height = 300, units = 'mm',path = 'week 2/')
+ggsave(filename = 'transit_cost.png', plot = last_plot(), width = 450, height = 300, units = 'mm',path = '2021/week 2/')
 
   

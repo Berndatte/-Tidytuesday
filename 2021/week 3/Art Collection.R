@@ -5,6 +5,7 @@
 
 #loading packages
 library(tidyverse)
+library(extrafont)
 
 #reading data
 artwork <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-01-12/artwork.csv')
@@ -39,21 +40,23 @@ arts <- artist_clean %>%
   
 #Plotting
 ggplot(arts, aes(year,total, color = gender)) +
-  geom_path(size =1)+
+  geom_path(size =1) +
   labs(title = 'Artworks purchased by Tate since 1700', x = 'Year', y = 'Total Number of Artwork',
        caption = 'Visualization:Nthambi \n Source: Tate Collection')+
   scale_color_manual(name = 'Gender', labels = c('Female', 'Male'), values = c('blue', 'tomato')) +
   theme_bw() +
   theme(panel.grid = element_blank(),
         title = element_text(family = 'serif' , face = 'bold', size = 22, hjust = 0.5),
-        axis.title = element_text(family = 'mono', face = 'bold.italic', size = 14),
-        axis.text = element_text(color = 'blue', size = 10),
-        plot.caption = element_text(size = 9, colour = 'tomato'),
-        legend.position = c(0.9, 0.9))
+        axis.title = element_text(family = 'serif', face = 'bold', size = 22),
+        axis.text = element_text(color = 'blue', size = 18),
+        plot.caption = element_text(size = 18, colour = 'tomato'),
+        legend.position = c(0.9, 0.9),
+        legend.text = element_text(color = 'cornflowerblue', size = 16, family = 'Ravie'),
+        legend.title = element_text(family = 'Vivaldi', face = 'bold', size = 22))
 
 #Saving the plot
 
-ggsave(filename = 'artwork.png', plot = last_plot(), width = 450, height = 300, units = 'mm', path = 'week 3/')  
+ggsave(filename = 'artwork.png', plot = last_plot(), width = 450, height = 300, units = 'mm', path = '2021/week 3/')  
   
 
 

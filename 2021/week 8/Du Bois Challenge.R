@@ -1,5 +1,10 @@
-#W.E.B Du Bois Challenge
 
+#TIDYTUESDAY WEEK 8
+#W.E.B Du Bois Challenge
+#BERNDATTE
+
+
+#Getting Data
 georgia_pop <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-02-16/georgia_pop.csv')
 census <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-02-16/census.csv')
 furniture <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-02-16/furniture.csv')
@@ -10,19 +15,19 @@ occupation <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience
 conjugal <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-02-16/conjugal.csv')
 
 
+#Loading the packages
 library(tidyverse)
 library(extrafont)
 
+#Cleaning the Data
 census_clean <- census%>%
   select(region,year, white, black)%>%
   gather(Group, total,c(3,4))%>%
   filter(region != 'USA Total')
 
-ggplot(census_clean, aes(year, total)) +
-  geom_line()
 
 
-
+#plotting
 ggplot(occupation, aes(y = Percentage, x = Group, fill = Occupation)) +
   geom_bar(stat = 'identity') +
   scale_y_continuous(expand = c(0,0))+
@@ -40,6 +45,7 @@ ggplot(occupation, aes(y = Percentage, x = Group, fill = Occupation)) +
         plot.caption = element_text(family = 'Colonna MT', size = 22, color = 'deepskyblue4'))
 
 
-ggsave(filename = 'Occupation.png', plot = last_plot(), height = 300, width = 450, units = 'mm', path = 'week 8/')
+#Saving
+ggsave(filename = 'Occupation.png', plot = last_plot(), height = 300, width = 450, units = 'mm', path = '2021/week 8/')
 
 

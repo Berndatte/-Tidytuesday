@@ -81,12 +81,14 @@ p2 <- ggplot(crop_1_sort, aes(County, total)) +
   facet_wrap(~Crop)+
   labs(title = 'Top Two Crops Produced In Kenya', x = 'Total Population growing crops', y = 'County', caption = 'Nthambi \n Source:rKenyaCensus') +
   theme_light() +
-  theme(plot.title = element_text(family = 'serif', face = 'bold.italic',color = 'tomato', size = 22 ),
-        axis.title = element_text(face = 'italic', size = 16),
-        axis.text = element_text(face = 'bold', color = 'purple', size = 10),
-        strip.background = element_rect(fill = 'black'),
-        strip.text = element_text(color = 'white', face = 'bold.italic', family = 'serif', size = 14))
+  theme(plot.title = element_text(family = 'serif', face = 'bold.italic',color = 'tomato', size = 24 ),
+        axis.title = element_text(face = 'italic', size = 22),
+        axis.text = element_text(face = 'bold', color = 'purple', size = 18),
+        strip.background = element_rect(fill = 'deepskyblue3'),
+        strip.text = element_text(color = 'white', face = 'bold.italic', family = 'serif', size = 24),
+        plot.caption = element_text(color = 'darkmagenta', family = 'Impact', size = 18))
 
-ggsave(filename = 'farming.png', plot = p1, width = 450, height = 300, units = 'mm', path = 'week 4/')  
+ggsave(filename = 'farming.png', plot = p1, width = 450, height = 300, units = 'mm', path = '2021/week 4/') 
 
 
+ggsave(filename = 'top_2_crops.png', plot = p2, width = 450, height = 300, units = 'mm', path = '2021/week 4/') 
