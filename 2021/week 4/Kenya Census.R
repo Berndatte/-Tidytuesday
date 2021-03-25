@@ -79,7 +79,7 @@ p2 <- ggplot(crop_1_sort, aes(County, total)) +
   geom_bar(stat = 'identity', fill = 'blue') +
   coord_flip()+
   facet_wrap(~Crop)+
-  labs(title = 'Top Two Crops Produced In Kenya', x = 'Total Population growing crops', y = 'County', caption = 'Nthambi \n Source:rKenyaCensus') +
+  labs(title = 'Top Two Crops Produced In Kenya', y = 'Total Population growing crops', x = 'County', caption = 'Nthambi \n Source:rKenyaCensus') +
   theme_light() +
   theme(plot.title = element_text(family = 'serif', face = 'bold.italic',color = 'tomato', size = 24 ),
         axis.title = element_text(face = 'italic', size = 22),

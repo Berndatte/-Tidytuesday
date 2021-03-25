@@ -38,7 +38,7 @@ ggsave(filename = 'lifetime_earnings.png', plot = p1,width = 450, height = 300, 
 #plotting secong plot and saving
 p2 <- ggplot(student_debt, aes(year, loan_debt, color = race)) +
   geom_line(size = 1)+
-  labs(title = 'Average Family Student Loan Debt By Race & Year', x = 'Year',
+  labs(title = 'Average Family Student Loan Debt By Race over time', x = 'Year',
        y = 'Loan Debt', color = 'RACE', caption = 'Nthambi \n Source: Urban Institute &
        US Census')+
   scale_y_continuous(labels = scales:: dollar) +

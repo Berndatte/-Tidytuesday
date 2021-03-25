@@ -48,9 +48,10 @@ p2 <- ggplot(hbcu_all_1, aes(Year, total, color = gender)) +
 
 
 #Combining the plots
-p1 + p2 + plot_annotation(title = 'College Enrollment', 
+p1 + p2 + plot_annotation(title = 'College Enrollment', caption = 'Berndatte \n Data:Data.World & Data.World',
                           theme = theme(plot.title = element_text(hjust = 0.5, color = '#c44536', size = 26,
-                                                                  face = 'bold', family = 'serif')))
+                                                                  face = 'bold', family = 'serif'),
+                                        plot.caption = element_text(color = 'chocolate4', size = 20, face = 'bold', family = 'Colonna MT')))
 
 #Saving the plots
 ggsave(filename = 'college_enrollment.png', plot = last_plot(),width = 450, height = 300, units = 'mm', path = '2021/week 6/')                                     
