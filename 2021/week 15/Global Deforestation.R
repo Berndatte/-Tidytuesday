@@ -36,20 +36,60 @@ ggplot(Brazil_loss,aes(year, loss,col = type)) +
        x = 'Year', y = 'Loss in million hectares',
        caption = 'Berndatte \n Our World in Data', col = 'Type')+
   scale_x_continuous(breaks = seq(2001,2013, 2),
-                     limits = c(2001, 2013)) +
-  guides(col = guide_legend(reverse = TRUE))+
-  theme(panel.background = element_rect(fill = '#000000'),
-        panel.grid.minor  = element_blank(),
-        panel.grid.major = element_line(color = 'grey'),
-        plot.title = element_text(color = '#023047', size = 24, family = 'Algerian', face = 'bold'),
-        axis.title = element_text(color = '#9d0208', size = 20, family = 'Ebrima', face = 'italic'),
-        legend.title = element_text(color = '#4361ee', size = 20, family = 'serif'),
-        legend.text = element_text(color = '#118ab2', size = 20,face = 'bold', family = 'mono'),
-        plot.caption = element_text(color = '#f77f00', size = 20, family = 'Arial Narrow'),
-        axis.text = element_text(color = '#5f0f40', size = 18, family = 'mono'),
-        legend.key  = element_rect(fill = '#000000'))
+                     limits = c(2001, 2013)
+                     ) +
+  guides(col = guide_legend(reverse = TRUE)
+         )+
+  theme(panel.background = element_rect(fill = '#000000'
+                                        ),
+        panel.grid.minor  = element_blank(
+        ),
+        panel.grid.major = element_line(color = 'grey'
+                                        ),
+        plot.title = element_text(
+          color = '#023047',
+          size = 24,
+          family = 'Algerian',
+          face = 'bold'
+          ),
+        axis.title = element_text(
+          color = '#9d0208',
+          size = 20,
+          family = 'Ebrima',
+          face = 'italic'
+          ),
+        legend.title = element_text(
+          color = '#4361ee',
+          size = 20, 
+          family = 'serif'
+          ),
+        legend.text = element_text(
+          color = '#118ab2',
+          size = 20,
+          face = 'bold',
+          family = 'mono'
+          ),
+        plot.caption = element_text(
+          color = '#f77f00',
+          size = 20,
+          family = 'Arial Narrow'
+          ),
+        axis.text = element_text(
+          color = '#5f0f40',
+          size = 18,
+          family = 'mono'
+          ),
+        legend.key  = element_rect(
+          fill = '#000000')
+        )
  #Save      
-ggsave(filename = 'Deforestation.png', height = 300, width = 450, units = 'mm', plot = last_plot(), path = '2021/week 15/')
+ggsave(filename = 'Deforestation.png',
+       height = 300,
+       width = 450,
+       units = 'mm',
+       plot = last_plot(),
+       path = '2021/week 15/'
+       )
   
   
 
