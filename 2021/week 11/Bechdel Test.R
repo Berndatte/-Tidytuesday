@@ -15,7 +15,8 @@ movies <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tid
 movie <- movies %>%
   select(year,title, budget, clean_test)%>%
   drop_na(year,budget, clean_test)%>%
-  mutate(budget = budget /1000000)
+  mutate(budget = budget /1000000)%>%
+  filter(clean_test != 'dubious')
 
 source <- 'Source:FiveThirtyEight \n Berndatte'
 
@@ -25,8 +26,9 @@ source <- 'Source:FiveThirtyEight \n Berndatte'
         ) +
   geom_jitter(size = 2.5)+
    
-  scale_color_manual(values = c("#fca311", "#3a0ca3", "#583101", "#ef476f", "#2b9348")
+  scale_color_manual(values = c("#fca311", "#583101", "#ef476f", "#2b9348")
                      )+
+   geom_text(aes(x = 2009, y = 410, label = 'Movie: Avatar'), show.legend = F) +
   labs(x = 'Year',
        y = 'Budget in million',
        title = 'Budget of Movies -since 1970',
