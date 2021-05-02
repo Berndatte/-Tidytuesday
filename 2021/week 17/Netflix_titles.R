@@ -2,14 +2,15 @@
 #Netflix Titles
 #BERNDATTE
 
-
+#LOADING PACKAGES
 library(tidyverse)
 library(extrafont)
+
 #GETTING DATA
 netflix_titles <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-04-20/netflix_titles.csv')
 
 
-
+#WRANGLING
 netflix <- netflix_titles %>%
   filter(release_year <= 2020)%>%
   group_by(type, release_year) %>%
@@ -20,6 +21,7 @@ source = 'Data:Kaggle\nBerndatte'
   
 txt <- 'NETFLIX'
 
+#VISUALIZING
 ggplot(netflix, aes(release_year,y = n, fill = type)) +
   geom_col(na.rm = T, position = 'dodge') +
   scale_x_continuous(
@@ -75,6 +77,7 @@ ggplot(netflix, aes(release_year,y = n, fill = type)) +
        panel.grid.major = element_blank()
     )
 
+#SAVING THE PLOT
 ggsave(filename = 'week_17.png', width = 450, height = 250, plot = last_plot(), units = 'mm', path = '2021/week 17/')
   
 
