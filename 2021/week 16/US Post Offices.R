@@ -34,7 +34,7 @@ ggplot(post, aes(year,count, color = Title)) +
   labs(title = 'Total Number of USA Post Office ',
        subtitle = 'Established and Discontinued - since 1800',
        caption = source,
-       x = 'Total', y = 'Year') +
+       y = 'Total', x = 'Year') +
   guides(col = guide_legend(reverse = TRUE))+
   scale_color_discrete(name = "", labels = c('Discontinued', 'Established'))+
   theme(axis.line = element_line(
